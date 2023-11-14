@@ -1,0 +1,3978 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100;1,200&display=swap');
+
+/* font-family: 'Poppins', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    /* cursor: pointer; */
+}
+
+body {
+    overflow-x: hidden;
+    background: whitesmoke;
+}
+
+.popup-screen{
+    z-index: 999999;
+    position: fixed;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: 0.5s ease;
+    transition-property: visibility;
+}
+
+.popup-screen.active{
+    visibility: visible;
+}
+.popup-box{
+    position: relative;
+    background: rgb(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    max-width: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 20px;
+    padding: 50px 40px; */
+    border-radius: 1px;
+    box-shadow: 0 5px 25px rgba(0 0 0 / 20%);
+    transform: scale(0);
+    transition: 0.5s ease;
+    transition-property: transform;
+}
+.popup-screen.active .popup-box{
+    transform: scale(1);
+}
+
+.popupClose-btn{
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 400;
+    top: 0;
+    right: 0;
+    left: 100%;
+    cursor: pointer;
+    opacity: 0.5;
+    color: black;
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+.popupClose-btn:hover{
+    opacity: 1;
+}
+
+
+.login-form{
+    display: flex;
+    height: 77vh;
+}
+.leftSide{
+    width: 80%;
+    background-color: #2874f0;
+    color: white;
+    border-radius: 1px;
+    padding: 10px 20px;
+    padding: 40px 33px;
+}
+.leftSide h3{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.leftSide p{
+    width: 100%;
+    font-size: 17px;
+    margin-top: 16px;
+    line-height: 130%;
+    color: #dbdbdb;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+.leftSide img{
+    margin-top: 160px;
+    padding-left: 20px;
+}
+.rightSide{
+    width: 100%;
+    padding: 56px 35px 16px;
+    position: relative;
+    background-color: #fff;
+}
+
+.rightSide .text{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #2874f0;
+    width: 100%;
+    padding: 8pt 10px 10px 0;
+    color: #000;
+    font-size: inherit;
+}
+.rightSide label{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    padding: 10px 40px;
+    color: rgb(158, 157, 157);
+    cursor: text;
+    transition: 0.2s;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+input:focus~label,
+input:valid~label{
+    top: 35px;
+    font-size: 13px;
+}
+
+
+.rightSide .links{
+    padding-top: 50px;
+    width: 100%;
+    color: rgb(158, 157, 157);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.rightSide .links a{
+    color: #2874f0;
+}
+.rightSide .RequestOTP{
+    width: 100%;
+    background-color: #fb641b;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    padding: 10px 0;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+.rightSide .footerOfForm{
+    margin-top: 210px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.rightSide .footerOfForm a{
+    color: #2874f0;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: white;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    position: sticky;
+    top: 0;
+}
+
+.navbarContainer {
+    display: flex;
+}
+
+.Exploreplus {
+    margin-left: 45px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.Explore {
+    color: rgb(133, 132, 132);
+}
+
+.plus {
+    color: rgb(255, 145, 0);
+    font-weight: 600;
+}
+
+.searchContainer {
+    background-color: rgb(229, 245, 240);
+    margin-left: 40px;
+    height: 40px;
+    width: 45%;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-bottom: 0px;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+
+.searchIcon {
+    border: none;
+    outline: none;
+    background: none;
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 25px;
+    color: rgb(114, 112, 112);
+}
+
+.searchText {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 17px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.detailIcon {
+    display: flex;
+}
+
+.sellerIcon {
+    padding-bottom: 235px;
+    padding-right: 5px;
+    padding-left: 30px;
+}
+
+.sellerText {
+    padding-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: 590;
+    width: 100%;
+    font-size: 16px;
+}
+
+.signIcon {
+    margin-left: 50px;
+    padding-right: 5px;
+    margin-bottom: 235px;
+}
+
+.signinDiv {
+    display: flex;
+}
+
+.signText {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.belowIcon {
+    margin-left: 6px;
+    margin-bottom: 240px;
+    color: black;
+    font-weight: 500;
+    text-shadow: 0 4px 4px gray;
+}
+
+.belowIcon:hover {
+    transition: 0.5s;
+    transform: rotate(-180deg);
+}
+
+.signOptions {
+    position: relative;
+    margin-top: 40px;
+    padding-left: -12px;
+    display: none;
+}
+
+.signOption-content {
+    margin-left: -130px;
+    margin-top: 10px;
+    background: white;
+    box-shadow: 0 2px 4px gray;
+    border-radius: 10px;
+    width: 260px;
+    height: 240px;
+    padding: 10px 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+}
+
+.option1 {
+    padding-bottom: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}
+
+.option2 {
+    text-align: left;
+}
+
+.option2 p .profileIcon {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option2 p {
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: -20px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option3 p {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option3 img {
+    text-align: left;
+    padding-left: 3px;
+    font-size: 40px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option4 p {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option4 .orderIcon {
+    text-align: left;
+    padding-left: 9px;
+    padding-right: 10px;
+    font-size: 40px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option5 p {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option5 .heartIcon {
+    text-align: left;
+    padding-left: 9px;
+    padding-right: 10px;
+    font-size: 40px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option6 p {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option6 .rewardIcon {
+    text-align: left;
+    padding-left: 9px;
+    padding-right: 10px;
+    font-size: 40px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.option7 p {
+    text-align: left;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    padding-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    ;
+    cursor: pointer;
+}
+
+.option7 .cardIcon {
+    text-align: left;
+    padding-left: 9px;
+    padding-right: 10px;
+    font-size: 40px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signOption-content span {
+    padding-left: 50px;
+    padding-right: 0;
+    color: blue;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    ;
+}
+
+.cartIcon {
+    padding-left: 40px;
+    padding-top: 7px;
+    padding-bottom: 245px;
+    padding-right: 5px;
+}
+
+.cartText {
+    padding-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: 500;
+}
+
+.dotIcon {
+    padding-left: 40px;
+    padding-bottom: 240px;
+}
+
+.topProducts-nav {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 1310px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.furnitureImage {
+    padding-left: 25px;
+}
+
+.line2Div p:hover {
+    color: blue;
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+.travelText {
+    color: black;
+    padding-left: 13px;
+}
+
+.toyImage {
+    padding-left: 38px;
+}
+
+.belowicon:hover {
+    transition: 0.5s;
+    transform: rotate(-180deg);
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 97%;
+    height: 220px;
+    overflow: hidden;
+    margin-top: 17px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slider .active {
+    display: block;
+}
+
+#privous,
+#next {
+    position: absolute;
+    top: 30%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+#privous {
+    left: 0px;
+    height: 90px;
+}
+
+#next {
+    right: 0px;
+    height: 90px;
+}
+
+.SliderIcon {
+    font-size: larger;
+}
+
+#privous:hover,
+#next:hover {
+    background-color: whitesmoke;
+    cursor: auto;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 47%;
+    background-color: rgba(40, 36, 36, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 0 5px;
+    height: 10px;
+}
+
+.dot {
+    cursor: auto;
+    height: 6px;
+    width: 6px;
+    margin: 0 2px;
+    background-color: gray;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s;
+}
+
+.dot:hover {
+    cursor: auto;
+}
+
+.dots-container .activeDot {
+    background-color: white;
+    width: 8px;
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+/* !==============================================> ELECTRONIC PRODUCTS <=============================! */
+
+
+
+
+
+
+
+
+
+
+
+.elctronic-container{
+    display: flex;
+}
+
+.collection-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.electronic-products {
+    background-color: white;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 59vh;
+}
+.topProduct-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.electronic-products h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: bolder;
+    width: 100%;
+}
+.electronic-products .card-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+.productContainer{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.productContainer::-webkit-scrollbar{
+    display: none;
+}
+
+#cardPreBtn,
+#cardNxtBtn {
+    position: absolute;
+    top: 90%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#cardPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#cardNxtBtn {
+    right: 270px;
+    height: 90px;
+}
+
+
+#cardPreBtn:hover,
+#cardNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 590;
+}
+.product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.product-cards img{
+    width: 180px;
+    height: 190px;
+    padding: 10px  -10px;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 20px;
+    transition: all 0.1s ease;
+}
+
+
+.product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.product-cards .cameraImage{
+    padding-top: 40px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.product-cards .printerImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.product-cards .panDriveImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.product-cards .powerBankImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.product-cards .trimmerImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+
+.product-cards .keybordImage{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.product-cards .secondLastImage{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.product-cards .lastImage{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.offerDiv img{
+    background-color: white;
+    padding: 10px 10px;
+    margin-top: 18px;
+    margin-left: 18px;
+    margin-right: 20px;
+    width: 240px;
+    height: 366px;
+}
+
+
+
+
+
+
+
+
+
+
+/* !==================================> TOP PRODUCTS <================================! */
+
+
+
+
+
+
+
+
+.topProductContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+
+
+
+.topDeals-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 12px;
+    height: 57vh;
+}
+.topDeals-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.topDeals-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.topDeals-heading .deals-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.topProductContainer{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.topProductContainer::-webkit-scrollbar{
+    display: none;
+}
+
+#topDealPreBtn,
+#topDealNxtBtn {
+    position: absolute;
+    top: 160%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#topDealPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#topDealNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#topDealPreBtn:hover,
+#topDealNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.top-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.top-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.top-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.top-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.top-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.top-product-cards .shoesImage1{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.top-product-cards .shoesImage2{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.top-product-cards .watchImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 13px;
+    width: 140px;
+    height: 160px;
+}
+.top-product-cards .chasmaImage{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.top-product-cards .saree{
+    padding-top: 5px;
+    padding-bottom: -2px;
+    margin-top: 10px;
+    width: 150px;
+    height: 180px;
+}
+
+
+.top-product-cards .dressImage{
+    padding-top: 5px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 180px;
+}
+
+.top-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    width: 150px;
+    height: 180px;
+}
+
+.top-product-cards .lastImage{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    padding-left: -5px;
+    padding-right: -2px;
+    margin-top: 10px;
+    width: 170px;
+    height: 180px;
+}
+
+
+
+
+
+
+
+
+
+/* !==================================> FASHION PRODUCTS <================================! */
+
+
+
+
+
+
+
+.fashion-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.fashionDiv-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.fashionDiv-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.fashionDiv-heading .fashion-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.fashion-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.fashion-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#fashionPreBtn,
+#fashionNxtBtn {
+    position: absolute;
+    top: 220%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#fashionPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#fashionNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#fashionPreBtn:hover,
+#fashionNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.fashion-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.fashion-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.fashion-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.fashion-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.fashion-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.fashion-product-cards .shoesImage1{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.fashion-product-cards .t-shirt{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.fashion-product-cards .jeans{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-top: 13px;
+    width: 140px;
+    height: 170px;
+}
+.fashion-product-cards .shilper{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+.fashion-product-cards .shoes3{
+    padding-top: 5px;
+    padding-bottom: -2px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+
+
+.fashion-product-cards .shirt{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+
+.fashion-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+
+.fashion-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    padding-left: -5px;
+    padding-right: -2px;
+    margin-top: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+/* !========================> FESTIVAL WAER PRODUCTS <====================================! */
+
+
+
+
+.festivalWear-container{  
+    display: flex;
+}
+
+.festivalproduct-div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.festival-wear {
+    background-color: white;
+    width: 43%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+
+.festivalWear-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.festival-wear h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: bolder;
+    width: 100%;
+}
+.festival-wear .festival-Toparrow{
+    margin: 25px 30px;
+    padding: 2px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.festival-products{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    scroll-behavior: smooth;
+}
+.festival-products::-webkit-scrollbar{
+    display: none;
+}
+.festival-products2{
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+.festival-products2::-webkit-scrollbar{
+    display: none;
+}
+
+.festival-product-cards{
+    margin-top: 10px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 194px;
+    text-align: center;
+}
+.festival-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 590;
+}
+.festival-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: green;
+}
+
+.festival-product-cards img{
+    width: 180px;
+    height: 190px;
+    padding: 10px  -10px;
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 20px;
+    transition: all 0.1s ease;
+}
+
+
+.festival-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.festival-product-cards .saree{
+    padding-top: 5px;
+    padding-bottom: 1px;
+    padding-right: 20px;
+    padding-left: 5px;
+    margin-top: 7px;
+    width: 150px;
+    height: 160px;
+}
+.festival-product-cards .wallet{
+    padding-top: 5px;
+    padding-left: 4px;
+    padding-right: 14px;
+    margin-top: 10px;
+    width: 150px;
+    height: 160px;
+}
+.festival-product-cards .watch{
+    padding-top: 25px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+}
+.festival-product-cards .Jewellery{
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.sideImage img{
+    border: 2px solid gainsboro;
+    margin-top: 18px;
+    margin-left: 18px;
+    margin-right: 20px;
+    width: 850px;
+    height: 620px;
+}
+
+
+
+
+
+
+/* !=================================> PURPLE IMAGE <======================================! */
+
+
+
+
+.images{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img1 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img2 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img3 img{
+    width: 410px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+/* !=========================================> BEAUTY TOY AND MORE <===============================! */
+
+
+
+
+
+
+
+
+.beauty-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.beautyDiv-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.beautyDiv-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.beautyDiv-heading .beauty-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.beauty-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.beauty-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#beautyPreBtn,
+#beautyNxtBtn {
+    position: absolute;
+    top: 420%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#beautyPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#beautyNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#beautyPreBtn:hover,
+#beautyNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.beauty-product-cards{
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.beauty-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.beauty-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.beauty-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 30px;
+    transition: all 0.1s ease;
+}
+
+
+.beauty-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.beauty-product-cards .helmet{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+.beauty-product-cards .CricketBall{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+.beauty-product-cards .protein{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-top: 10px;
+    width: 140px;
+    height: 170px;
+}
+.beauty-product-cards .drink{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 180px;
+    height: 170px;
+}
+.beauty-product-cards .helmet2{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+
+
+.beauty-product-cards .carMusic{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 180px;
+    height: 170px;
+}
+
+.beauty-product-cards .actionToy{
+    padding-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 13px;
+    width: 180px;
+    height: 160px;
+}
+
+.beauty-product-cards .lastImage{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    padding-left: 9px;
+    padding-right: 5px;
+    margin-top: 12px;
+    width: 160px;
+    height: 160px;
+}
+
+
+
+
+
+
+
+
+/* !=============================> 2 PURPLE IMAGE <===============================! */
+
+
+
+
+
+
+
+
+
+.images2{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img4 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img5 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img6 img{
+    width: 410px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* !========================> KICHEN PRODUCTS <============================! */
+
+
+
+
+.kichen-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.kichenDiv-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.kichenDiv-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.kichenDiv-heading .kichen-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.kichen-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.kichen-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#kichenPreBtn,
+#kichenNxtBtn {
+    position: absolute;
+    top: 520%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#kichenPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#kichenNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#kichenPreBtn:hover,
+#kichenNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.kichen-product-cards{
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.kichen-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.kichen-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.kichen-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 30px;
+    transition: all 0.1s ease;
+}
+
+
+.kichen-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.kichen-product-cards .pan{
+    padding-top: 25px;
+    padding-bottom: 5px;
+    margin-top: 9px;
+    width: 150px;
+    height: 160px;
+}
+.kichen-product-cards .poojaItem{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 160px;
+}
+.kichen-product-cards .PlantContainer{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-top: 10px;
+    width: 140px;
+    height: 160px;
+}
+.kichen-product-cards .Cords{
+    padding-top: 20px;
+    padding-bottom: 1px;
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 180px;
+    height: 160px;
+}
+.kichen-product-cards .Tawa{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 150px;
+    height: 160px;
+}
+
+
+.kichen-product-cards .Flasks{
+    padding-top: 5px;
+    padding-bottom: 2px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 140px;
+    height: 160px;
+}
+
+.kichen-product-cards .PlantSeed{
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 13px;
+    width: 150px;
+    height: 160px;
+}
+
+.kichen-product-cards .lastImage{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    margin-right: 20px;
+    margin-top: 13px;
+    margin-top: 12px;
+    width: 149px;
+    height: 160px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* !========================> HOME AND DECOR PRODUCTS <====================================! */
+
+
+
+
+.decor-container{  
+    display: flex;
+}
+
+
+.decor-products {
+    background-color: white;
+    width: 43%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+
+.decorProduct-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.decorProduct-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: bolder;
+    width: 100%;
+}
+.decor-products .decor-Toparrow{
+    margin: 25px 30px;
+    padding: 2px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.decorProduct-div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.homeDecor-products{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    scroll-behavior: smooth;
+}
+.homeDecor-products::-webkit-scrollbar{
+    display: none;
+}
+.homeDecor-products2{
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+.homeDecor-products2::-webkit-scrollbar{
+    display: none;
+}
+
+.homeDecor-product-cards{
+    margin-top: 10px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 194px;
+    text-align: left;
+}
+.homeDecor-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    padding-left: 10px;
+    font-weight: 590;
+}
+.homeDecor-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 10px;
+    color: green;
+}
+
+.homeDecor-product-cards img{
+    width: 180px;
+    height: 190px;
+    padding: 10px  -10px;
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 20px;
+    transition: all 0.1s ease;
+}
+
+
+.homeDecor-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.homeDecor-product-cards .Bedsheets{
+    padding-top: 20px;
+    padding-bottom: 1px;
+    margin-right: -2px;
+    margin-left: 8px;
+    margin-top: 7px;
+    width: 170px;
+    height: 160px;
+}
+.homeDecor-product-cards .Torches{
+    padding-top: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 160px;
+}
+.homeDecor-product-cards .Blankets{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 7px;
+    margin-top: 1px;
+    width: 170px;
+    height: 170px;
+}
+.homeDecor-product-cards .PlantsSaplings{
+    padding-top: 20px;
+    padding-bottom: 7px;
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-top: 19px;
+    width: 170px;
+    height: 150px;
+}
+
+.sideImage2 img{
+    border: 2px solid gainsboro;
+    margin-top: 18px;
+    margin-left: 18px;
+    margin-right: 20px;
+    width: 850px;
+    height: 620px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================> FASHION BEST PRODUCTS <================================! */
+
+
+
+
+
+
+
+.fashionBest-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 9px;
+    height: 57vh;
+}
+.fashionBestDiv-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.fashionBestDiv-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.fashionBestDiv-heading .fashionBest-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.fashionBest-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.fashionBest-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#fashionBestPreBtn,
+#fashionBestNxtBtn {
+    position: absolute;
+    top: 686%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#fashionBestPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#fashionBestNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#fashionBestPreBtn:hover,
+#fashionBestNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.fashionBest-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.fashionBest-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.fashionBest-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.fashionBest-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.fashionBest-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.fashionBest-product-cards .shoesImage{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.fashionBest-product-cards .Ducati{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 13px;
+    width: 150px;
+    height: 170px;
+}
+.fashionBest-product-cards .shoesImage2{
+    padding-top: 27px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-top: 35px;
+    width: 140px;
+    height: 150px;
+}
+.fashionBest-product-cards .FlyingMachine{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 3px;
+    width: 160px;
+    height: 180px;
+}
+.fashionBest-product-cards .Bata{
+    padding-top: 5px;
+    padding-bottom: -2px;
+    margin-top: 10px;
+    width: 150px;
+    height: 170px;
+}
+
+
+.fashionBest-product-cards .Tokyo{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 160px;
+    height: 170px;
+}
+
+.fashionBest-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: 160px;
+    height: 170px;
+}
+
+.fashionBest-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+/* !=================================>3 PURPLE IMAGE <======================================! */
+
+
+
+
+.images3{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img7 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img8 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img9 img{
+    width: 410px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !========================> NEW STYLE FOR HER <====================================! */
+
+
+
+
+.newStyle-container{  
+    display: flex;
+}
+
+
+.newStyle-products {
+    background-color: white;
+    width: 43%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+
+.newStyle-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.newStyle-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: bolder;
+    width: 100%;
+}
+.newStyle-products .newStyle-Toparrow{
+    margin: 25px 30px;
+    padding: 2px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.newStyle-div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.homeDecor-products{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    scroll-behavior: smooth;
+}
+.homeDecor-products::-webkit-scrollbar{
+    display: none;
+}
+.homeDecor-products2{
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+.homeDecor-products2::-webkit-scrollbar{
+    display: none;
+}
+
+.newStyle-product-cards{
+    margin-top: 10px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 194px;
+    text-align: left;
+}
+.newStyle-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    padding-left: 10px;
+    font-weight: 590;
+}
+.newStyle-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 10px;
+    color: green;
+}
+
+.newStyle-product-cards img{
+    width: 180px;
+    height: 190px;
+    padding: 10px  -10px;
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 20px;
+    transition: all 0.1s ease;
+}
+
+
+.newStyle-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.newStyle-product-cards .Watches{
+    padding-top: 20px;
+    padding-bottom: 1px;
+    margin-right: 2px;
+    margin-left: 35px;
+    margin-top: 7px;
+    width: 130px;
+    height: 160px;
+}
+.newStyle-product-cards .Jewellery{
+    padding-top: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 10px;
+    width: 150px;
+    height: 160px;
+}
+.newStyle-product-cards .Accessories{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 78px;
+    margin-right: 7px;
+    margin-top: 1px;
+    width: 30px;
+    height: 170px;
+}
+.newStyle-product-cards .Mangalsutra{
+    padding-top: 18px;
+    padding-bottom: 7px;
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-top: 1px;
+    width: 170px;
+    height: 180px;
+}
+
+.sideImage2 img{
+    border: 2px solid gainsboro;
+    margin-top: 18px;
+    margin-left: 18px;
+    margin-right: 20px;
+    width: 850px;
+    height: 620px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !=================================>4 PURPLE IMAGE <======================================! */
+
+
+
+
+.images4{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img10 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img11 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img12 img{
+    width: 410px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================>  OFFERS ON FURNITURE <================================! */
+
+
+
+
+
+
+
+.Furniture-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.Furniture-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.Furniture-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.Furniture-heading .Furniture-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.Furniture-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.Furniture-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#FurniturePreBtn,
+#FurnitureNxtBtn {
+    position: absolute;
+    top: 926%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#FurniturePreBtn {
+    left: 6px;
+    height: 90px;
+}
+#FurnitureNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#FurniturePreBtn:hover,
+#FurnitureNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.Furniture-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.Furniture-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.Furniture-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.Furniture-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.Furniture-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.Furniture-product-cards .Swings{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-top: 13px;
+    width: 140px;
+    height: 170px;
+}
+.Furniture-product-cards .Temple{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 13px;
+    width: 170px;
+    height: 170px;
+}
+.Furniture-product-cards .Tables{
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 170px;
+    height: 170px;
+}
+.Furniture-product-cards .Tables2{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 3px;
+    width: 160px;
+    height: 180px;
+}
+.Furniture-product-cards .Chair{
+    padding-top: 5px;
+    padding-bottom: -2px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 170px;
+    height: 160px;
+}
+
+
+.Furniture-product-cards .Table3{
+    padding-top: -2px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 160px;
+    height: 170px;
+}
+
+.Furniture-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: 160px;
+    height: 170px;
+}
+
+.Furniture-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+/* !=================================> 5 PURPLE IMAGE <======================================! */
+
+
+
+
+.images5{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img13 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img14 img{
+    width: 440px;
+    height: 230px;
+    margin-left: 5px;
+}
+.img15 img{
+    width: 410px;
+    height: 230px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================>  TOP APPLIANCES <================================! */
+
+
+
+
+
+
+
+.appliance-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.appliance-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.appliance-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.appliance-heading .appliance-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.appliance-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.appliance-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#appliancePreBtn,
+#applianceNxtBtn {
+    position: absolute;
+    top: 1024%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#appliancePreBtn {
+    left: 6px;
+    height: 90px;
+}
+#applianceNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#appliancePreBtn:hover,
+#applianceNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.appliance-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.appliance-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.appliance-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.appliance-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.appliance-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.appliance-product-cards .Crystal{
+    padding-top: 32px;
+    padding-bottom: 5px;
+    margin-top: 13px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 170px;
+    height: 170px;
+}
+.appliance-product-cards .Washing{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-left: 30px;
+    margin-right: 25px;
+    margin-top: 13px;
+    width: 140px;
+    height: 170px;
+}
+.appliance-product-cards .Kitchen{
+    padding-top: 6px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 180px;
+    height: 170px;
+}
+.appliance-product-cards .Refrigerators{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 3px;
+    width: 95px;
+    height: 180px;
+}
+.appliance-product-cards .ACs{
+    padding-top: 70px;
+    padding-bottom: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 190px;
+    height: 170px;
+}
+
+
+.appliance-product-cards .Purifiers{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 110px;
+    height: 170px;
+}
+
+.appliance-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: 160px;
+    height: 170px;
+}
+
+.appliance-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !=================================> 6 PURPLE IMAGE <======================================! */
+
+
+.purplediv6{
+    background-color: white;
+    margin-top: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.purplediv6 h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+
+.images6{
+    display: flex;
+    width: 97%;
+    height: 289px;
+    padding-top: 10px;
+    margin-left: 2px;
+    margin-right: 30px;
+}
+
+.img16 img{
+    width: 410px;
+    height: 250px;
+    margin-left: 5px;
+}
+.img17 img{
+    width: 410px;
+    height: 260px;
+    margin-left: 5px;
+}
+.img18 img{
+    width: 410px;
+    height: 260px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================>  BEST DEALS ON ELECTRONIC <================================! */
+
+
+
+
+
+
+
+.bestElectronic-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.bestElectronic-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.bestElectronic-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.bestElectronic-heading .bestElectronic-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.bestElectronic-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.bestElectronic-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#bestElectronicPreBtn,
+#bestElectronicNxtBtn {
+    position: absolute;
+    top: 1148%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#bestElectronicPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#bestElectronicNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#bestElectronicPreBtn:hover,
+#bestElectronicNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.bestElectronic-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.bestElectronic-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.bestElectronic-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.bestElectronic-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.bestElectronic-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.bestElectronic-product-cards .Covers{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 100px;
+    height: 180px;
+}
+.bestElectronic-product-cards .Covers2{
+    padding-top: -2px;
+    padding-bottom: 5px;
+    margin-left: 30px;
+    margin-right: 25px;
+    margin-top: 13px;
+    width: 140px;
+    height: 170px;
+}
+.bestElectronic-product-cards .Monitor{
+    padding-top: 40px;
+    padding-bottom: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 9px;
+    width: 180px;
+    height: 170px;
+}
+.bestElectronic-product-cards .Covers3{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 3px;
+    width: 95px;
+    height: 180px;
+}
+.bestElectronic-product-cards .Headphone{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 12px;
+    width: 170px;
+    height: 180px;
+}
+
+
+.bestElectronic-product-cards .Dryer{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 109px;
+    height: 170px;
+}
+
+.bestElectronic-product-cards .secondLastImage{
+    padding-top: -2px;
+    padding-bottom: 2px;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 13px;
+    width: 160px;
+    height: 170px;
+}
+
+.bestElectronic-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================>  HOME AND FURNISHING <================================! */
+
+
+
+
+
+
+
+.furnishing-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.furnishing-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.furnishing-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.furnishing-heading .furnishing-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.furnishing-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.furnishing-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#furnishingPreBtn,
+#furnishingNxtBtn {
+    position: absolute;
+    top: 1205%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#furnishingPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#furnishingNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#furnishingPreBtn:hover,
+#furnishingNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.furnishing-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.furnishing-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.furnishing-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.furnishing-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.furnishing-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.furnishing-product-cards .Showpieces{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 15px;
+    margin-right: 15Px;
+    width: 170px;
+    height: 178px;
+}
+.furnishing-product-cards .Tools{
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 13px;
+    width: 170px;
+    height: 170px;
+}
+.furnishing-product-cards .Shelf{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 13px;
+    margin-right: 13Px;
+    width: 179px;
+    height: 178px;
+}
+.furnishing-product-cards .Lunch{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 175px;
+    height: 180px;
+}
+.furnishing-product-cards .Containers{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 12px;
+    width: 200px;
+    height: 180px;
+}
+
+
+.furnishing-product-cards .Hobs{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 190px;
+    height: 170px;
+}
+
+.furnishing-product-cards .secondLastImage{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 13px;
+    width: 190px;
+    height: 170px;
+}
+
+.furnishing-product-cards .lastImage{
+    padding-top: 50px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 190px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================>  BEAUTY TOYS AND MORE 2 <================================! */
+
+
+
+
+
+
+
+.beauty2-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.beauty2-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.beauty2-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.beauty2-heading .beauty2-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.beauty2-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.beauty2-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#beauty2PreBtn,
+#beauty2NxtBtn {
+    position: absolute;
+    top: 1266%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#beauty2PreBtn {
+    left: 6px;
+    height: 90px;
+}
+#beauty2NxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#beauty2PreBtn:hover,
+#beauty2NxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.beauty2-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.beauty2-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.beauty2-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.beauty2-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.beauty2-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.beauty2-product-cards .Nusring{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 15px;
+    margin-right: 15Px;
+    width: 180px;
+    height: 178px;
+}
+.beauty2-product-cards .BabyBath{
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 13px;
+    width: 170px;
+    height: 170px;
+}
+.beauty2-product-cards .Diapers{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 37px;
+    margin-right: 37Px;
+    width: 119px;
+    height: 178px;
+}
+.beauty2-product-cards .Covers{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 185px;
+    height: 180px;
+}
+.beauty2-product-cards .Gear{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+    margin-left: 43px;
+    margin-right: 40px;
+    width: 100px;
+    height: 180px;
+}
+
+
+.beauty2-product-cards .MusicSystem{
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 190px;
+    height: 186px;
+}
+
+.beauty2-product-cards .secondLastImage{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 13px;
+    width: 190px;
+    height: 170px;
+}
+
+.beauty2-product-cards .lastImage{
+    padding-top: 50px;
+    padding-bottom: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 190px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !=================================> 7 PURPLE IMAGE <======================================! */
+
+
+
+.images7{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img17 img{
+    width: 440px;
+    height: 250px;
+    margin-left: 5px;
+}
+.img18 img{
+    width: 440px;
+    height: 250px;
+    margin-left: 5px;
+}
+.img19 img{
+    width: 410px;
+    height: 250px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !==================================> MOBILE PHONE OFFERS <================================! */
+
+
+
+
+
+
+
+.mobiles-div {
+    background-color: white;
+    width: 97%;
+    margin-left: 20px;
+    margin-top: 18px;
+    height: 57vh;
+}
+.mobiles-heading{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.mobiles-heading h1 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+    width: 100%;
+    overflow: wrap;
+}
+.mobiles-heading .mobiles-Toparrow{
+    margin: 25px 30px;
+    padding: 3px 3.5px;
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+}
+
+.mobiles-Container{
+    display: flex;
+    overflow-x: auto;
+    padding: 0 33px;
+    scroll-behavior: smooth;
+}
+.mobiles-Container::-webkit-scrollbar{
+    display: none;
+}
+
+#mobilesPreBtn,
+#mobilesNxtBtn {
+    position: absolute;
+    top: 1360%;
+    color: gray;
+    border-radius: 5%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s;
+    cursor: auto;
+    opacity: 0.7;
+}
+#mobilesPreBtn {
+    left: 6px;
+    height: 90px;
+}
+#mobilesNxtBtn {
+    right: 10px;
+    height: 90px;
+}
+
+
+#mobilesPreBtn:hover,
+#mobilesNxtBtn:hover {
+    background-color: white;
+    cursor: auto;
+    opacity: 1;
+}
+
+.mobiles-product-cards{
+    margin-top: 20px;
+    margin-left: 15px;
+    border: 1px solid  rgb(223, 223, 223);
+    height: 40vh;
+    width: 500px;
+    text-align: center;
+}
+.mobiles-product-cards .Productname{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 590;
+}
+.mobiles-product-cards .shopNow{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.mobiles-product-cards img{
+    width: 180px;
+    height: 190px;
+    position: relative;
+    border-radius: 4px;
+    margin: 5px 22px;
+    transition: all 0.1s ease;
+}
+
+
+.mobiles-product-cards:hover img{
+    transform: scale(1.1);
+}
+
+
+.mobiles-product-cards .MotoG84{
+    padding-top: 2px;
+    margin-bottom: 1px;
+    margin-top: 8px;
+    margin-left: 30px;
+    margin-right: 30Px;
+    width: 130px;
+    height: 178px;
+}
+.mobiles-product-cards .Redmi12{
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 8px;
+    width: 130px;
+    height: 170px;
+}
+.mobiles-product-cards .PocoC51{
+    padding-top: 10px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    margin-left: 37px;
+    margin-right: 37Px;
+    width: 130px;
+    height: 178px;
+}
+.mobiles-product-cards .Hot30i{
+    padding-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 3px;
+    width: 130px;
+    height: 180px;
+}
+.mobiles-product-cards .SamsungF14{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+    margin-left: 43px;
+    margin-right: 40px;
+    width: 130px;
+    height: 180px;
+}
+
+
+.mobiles-product-cards .MotoG54{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 130px;
+    height: 180px;
+}
+
+.mobiles-product-cards .secondLastImage{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 39px;
+    margin-right: 39px;
+    margin-top: 1px;
+    width: 120px;
+    height: 170px;
+}
+
+.mobiles-product-cards .lastImage{
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    width: 130px;
+    height: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !=================================> 8 PURPLE IMAGE <======================================! */
+
+
+
+.images8{
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: 229px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img20 img{
+    width: 440px;
+    height: 250px;
+    margin-left: 5px;
+}
+.img21 img{
+    width: 440px;
+    height: 250px;
+    margin-left: 5px;
+}
+.img22 img{
+    width: 410px;
+    height: 250px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main {
+    background-color: rgb(235, 231, 231);
+    width: 100%;
+    height: 1430vh;
+}
+.footer{
+    width: 100%;
+    height: 104vh;
+}
+.footerDiv h1{
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.footerDiv p{
+    padding: 0 40px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    color: gray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
